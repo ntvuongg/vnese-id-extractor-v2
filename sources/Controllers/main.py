@@ -124,6 +124,9 @@ async def upload(file: UploadFile = File(...)):
 # @app.api_route("/extract", methods=["GET", "POST"])
 async def extract_info(ekyc=False, path_id = None):
     """ Check if uploaded image exist """
+    if not os.path.isdir(cfg.UPLOAD_FOLDER):
+        os.mkdir(cfg.UPLOAD_FOLDER)
+        
     INPUT_IMG = os.listdir(UPLOAD_FOLDER)
     if INPUT_IMG is not None:
         if not ekyc:
