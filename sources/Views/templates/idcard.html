@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>VNese ID Extractor v2.0</title>
+        <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script> -->
+        <link href="{{ url_for('static', path='css/styles.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="sidebar">
+            <div class="logo-content">
+                <div class="logo">
+                    <div class="logo-name">MENU</div>
+                </div>
+                <i class='bx bx-menu' id="menu-btn"></i>
+            </div>
+            <ul class="nav-list">
+                <li>
+                        <i class='bx bx-search-alt-2' ></i>
+                        <input type="text" placeholder="Search here...">
+                    <!-- <span class="tooltip">Search</span> -->
+                </li>
+                <li>
+                    <a href="home">
+                        <i class='bx bx-home' ></i>
+                        <span class="links-name">Home</span>
+                    </a>
+                    <span class="tooltip">Home</span>
+                </li>
+                <li>
+                    <a href="">
+                        <i class='bx bx-id-card' ></i>
+                        <span class="links-name">ID Extractor</span>
+                    </a>
+                    <span class="tooltip"> ID Extractor</span>
+                </li>
+                <li>
+                    <a href="ekyc">
+                        <i class='bx bxs-face' ></i>
+                        <span class="links-name">eKYC</span>
+                    </a>
+                    <span class="tooltip">eKYC</span>
+                </li>
+                <li>
+                    <a href="feedback">
+                        <i class='bx bx-message-dots' ></i>
+                        <span class="links-name">Feedback</span>
+                    </a>
+                    <span class="tooltip">Feedback</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-info-circle' ></i>
+                        <span class="links-name">About</span>
+                    </a>
+                    <span class="tooltip">About</span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bxs-contact' ></i>
+                        <span class="links-name">Contact</span>
+                    </a>
+                    <span class="tooltip">Contact</span>
+                </li>
+            </ul>
+            <div class="profile-content">
+                <div class="profile">
+                    <div class="profile-details">
+                        <img src="static/assets/profiles/profile.jpg" alt="">
+                        <div class="name-job">
+                            <div class="name">Nguyen Thanh Vuong</div>
+                            <div class="job">Computer Science</div>
+                        </div>
+                    </div>
+                    <i class='bx bx-log-out' id="logout"></i>
+                </div>
+            </div>
+        </div>
+        <div class="app">
+        <div class="logo">
+            <div class="img_cs">
+                <img src="static/assets/logo/uit_logo.png" alt="cs.png" />
+            </div>
+            <div class="img_uit">
+                <img src="static/assets/logo/cs_logo.png" alt="uit.png" />
+            </div>
+            <h1>Chip-based Vietnamese ID Card Extractor v2.0</h1>
+            <h4>@ Developed by Nguyen Thanh Vuong</h4>
+        </div>
+
+        <div class="overlay">
+            <div class="loading_wrapper">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                <div class="shadow"></div>
+                <span>Extracting...</span>
+            </div>
+        </div>
+        <div class="main">
+            <div class="container">
+                <form class="get_img">
+                    <h3>Upload your image :</h3>
+                    <div class="drag-area">
+                            <!-- <button id='close'>close</button> -->
+                        <div class="icon">
+                            <i class="fas fa-id-card"></i>
+                        </div>
+                        <span class="header">Drag & Drop</span>
+                        <span class="header">or <span class="button">Click here to browse</span></span>
+                        <input type="file" name="file" hidden />
+                        <span class="support">Supports: JPEG, JPG, PNG</span>
+                        <span class="note">Image of your ID card should be visible at 4 corners and make sure it is front side </span>
+                    </div>
+    
+                    <div class="container__submit">
+                        <div>
+                            <input type="submit" value="Extract" class="btn-extract" id="submitbtn" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="person">
+                <div class="container__download">
+                    <!-- <div>
+                        <input type="submit" onclick='downloadCSV({ filename: "user_data.csv" });' value="Download" class="btn-download" id="downloadbtn" />
+                    </div> -->
+                    <a href='#' class='btn-download' onclick='downloadExtracted();'>
+                        Download
+                      </a>
+                </div>
+                <h3>Your ID information:</h3>
+                <div class="person__img"></div>
+                <div class="person__info">
+                    <span class="info__id">Số (ID): </span><br />
+                    <span class="info__name">Họ và tên (Full name): </span><br />
+                    <span class="info__date">Ngày sinh (Date of birth): </span><br />
+                    <span class="info__sex">Giới tính (Sex): </span><br />
+                    <span class="info__nation">Quốc tịch (Nationality): </span><br />
+                    <span class="info__hometown">Quê quán (Place of origin): </span><br />
+                    <span class="info__address">Nơi thường trú (Place of residence): </span><br />
+                    <span class="info__doe">Ngày hết hạn (Date of expiry): </span><br />
+                </div>
+            </div>
+        </div>
+    </div>
+        <script src="{{ url_for('static', path='js/script.js') }}"></script>
+    </body>
+</html>

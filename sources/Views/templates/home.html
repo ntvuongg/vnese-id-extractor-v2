@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Homepage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{ url_for('static', path='css/home.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+<div class="navbar">
+    <div class="nav-list">
+      <a href="home" class="nav-link">Home</a>
+      <a href="id_card" class="nav-link">ID Card Extractor</a>
+      <a href="ekyc" class="nav-link">eKYC</a>
+      <a href="feedback" class="nav-link">Feedback</a>
+    </div>
+  </div>
+      <div class="cover">
+        <img src="static/assets/homepage/AI_background.jpeg" alt="" id="bg_img">
+      </div>
+      <div class="overlay"></div>
+    <div class="welcome">
+        <h1 class="w3-margin w3-jumbo">WELCOME TO MY SITE   </h1>
+        <p class="w3-xlarge">You can take a look and give a try services available below</p>
+        <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top" onclick="myFunction()">Get Started</button>
+    </div>
+  
+  <!-- First Grid -->
+  <div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-twothird">
+        <!-- <h1>Chip-based Vietnamese ID Card Extractor</h1> -->
+        <h1>ID Card Reader</h1>
+        <h5 class="w3-padding-32">Version: 2.0</h5>
+  
+        <p class="w3-text-grey">A web application helps us to extract information from Vietnamese chip-based ID card in a second. This application aims to reduce human typing workload and saves more time.</p>
+      </div>
+  
+      <div class="w3-third w3-center">
+        <!-- <i class="fa fa-anchor w3-padding-64 w3-text-red"></i> -->
+        <img src="static/assets/homepage/id.png" class="id_home" alt="id">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Second Grid -->
+  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-third w3-center">
+        <!-- <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i> -->
+        <img src="static/assets/homepage/ekyc.png" class="ekyc_home" alt="ekyc">
+      </div>
+      <div class="w3-twothird">
+        <h1>eKYC</h1>
+        <h5 class="w3-padding-32">Version: 1.0</h5>
+  
+        <p class="w3-text-grey">eKYC (Electronic Know Your Customer) is the expression used to describe the digitalization and electronic and online conception of KYC processes. eKYC is the remote, paperless process that minimizes the costs and traditional bureaucracy necessary in KYC processes.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+      <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
+  </div> -->
+  
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+    <div class="w3-xlarge w3-padding-32">
+        <div class="contact">
+            <span>Contact me</span>
+        </div>
+      <a href="https://www.facebook.com/ntvuongg/" class="fa fa-facebook-official w3-hover-opacity"></a>
+      <a href="https://github.com/ntvuongg" class="fa fa-github" aria-hidden="true"></a>
+      <a href="https://www.linkedin.com/in/ntvuongg/" class="fa fa-linkedin w3-hover-opacity"></a>
+   </div>
+  </footer>
+  <script src="{{ url_for('static', path='js/home.js') }}"></script>
+</body>
+</html>

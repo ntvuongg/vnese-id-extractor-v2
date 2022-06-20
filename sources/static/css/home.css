@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Quicksand; */
+}
+
+body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Lato", sans-serif;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+#bg_img{
+    width: 100%;
+    height: 100%;
+}
+
+.welcome{
+    position: absolute;
+    top: 40%;
+    left: 27%;
+    text-align: center;
+    color: #fff;
+}
+
+.w3-bar,h1,button {
+    font-family: "Montserrat", sans-serif;
+}
+
+.fa-anchor,.fa-coffee {
+    font-size:200px;
+}
+
+.navbar{
+    position: absolute;
+    z-index: 1;
+    color: #fff;
+    float: right;
+    width: 100%;
+}
+
+.nav-list{
+    margin-top: 25px;
+    text-align: right;
+    margin-right: 50px;
+}
+
+.navbar .nav-list a{
+    text-decoration: none;
+    font-size: 20px;
+    margin: 30px;
+
+    --s: 0.1em;   /* the thickness of the line */
+    --c: red; /* the color */
+    
+    padding-bottom: var(--s);
+    background: 
+      linear-gradient(90deg,var(--c) 50%,#000 0) calc(100% - var(--_p,0%))/200% 100%,
+      linear-gradient(var(--c) 0 0) 0% 100%/var(--_p,0%) var(--s) no-repeat;
+    -webkit-background-clip: text,padding-box;
+            background-clip: text,padding-box;
+    transition: 0.5s;
+}
+
+.navbar .nav-list a:hover {
+    --_p: 100%;
+    color: red;
+}
+
+.w3-button{
+    margin-top: 50px!important;
+    transition: 0.3s;
+}
+
+.id_home{
+    padding-left: 150px;
+    width: 450px;
+}
+
+.ekyc_home{
+    padding-right: 200px;
+    width: 425px;
+}
+
+.w3-padding-32 a{
+    text-decoration: none;
+    margin: 10px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.w3-black{
+    background-color: #fff!important;
+    color: #000!important;
+}

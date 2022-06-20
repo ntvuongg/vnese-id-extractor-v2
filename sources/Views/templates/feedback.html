@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css' rel='stylesheet'>
+    <!-- <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js' rel='stylesheet'> -->
+    <!-- <link href='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js' rel='stylesheet'> -->
+    <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css ' rel='stylesheet'>
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="sweetalert2.all.min.js"></script> -->
+    <link href="{{ url_for('static', path='css/feedback.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-content">
+            <div class="logo">
+                <div class="logo-name">MENU</div>
+            </div>
+            <i class='bx bx-menu' id="menu-btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                    <i class='bx bx-search-alt-2' ></i>
+                    <input type="text" placeholder="Search here...">
+                <!-- <span class="tooltip">Search</span> -->
+            </li>
+            <li>
+                <a href="home">
+                    <i class='bx bx-home' ></i>
+                    <span class="links-name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="id_card">
+                    <i class='bx bx-id-card' ></i>
+                    <span class="links-name">ID Extractor</span>
+                </a>
+                <span class="tooltip"> ID Extractor</span>
+            </li>
+            <li>
+                <a href="ekyc">
+                    <i class='bx bxs-face' ></i>
+                    <span class="links-name">eKYC</span>
+                </a>
+                <span class="tooltip">eKYC</span>
+            </li>
+            <li>
+                <a href="feedback">
+                    <i class='bx bx-message-dots' ></i>
+                    <span class="links-name">Feedback</span>
+                </a>
+                <span class="tooltip">Feedback</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-info-circle' ></i>
+                    <span class="links-name">About</span>
+                </a>
+                <span class="tooltip">About</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-contact' ></i>
+                    <span class="links-name">Contact</span>
+                </a>
+                <span class="tooltip">Contact</span>
+            </li>
+        </ul>
+        <div class="profile-content">
+            <div class="profile">
+                <div class="profile-details">
+                    <img src="static/profiles/profile.jpg" alt="">
+                    <div class="name-job">
+                        <div class="name">Nguyen Thanh Vuong</div>
+                        <div class="job">Computer Science</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="logout"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-center">
+        <div class="card mt-5 pb-5">
+          <div class="d-flex flex-row justify-content-between adiv text-white">
+            <!-- <i class="fas fa-chevron-left"></i> -->
+            <span class="pb-3">Feedback</span>
+            <!-- <i class="fas fa-times"></i>     -->
+          </div>
+          <div class="mt-2 p-4 text-center">
+            <h6 class="mb-0">Your feedback help us to improve.</h6>
+            <small class="px-3">Please let us know about your services experience.</small>
+            <div class="d-flex flex-row justify-content-center mt-2">
+              <img src="https://img.icons8.com/emoji/48/000000/angry-face-emoji--v2.png" class="icon"/>
+              <img src="https://img.icons8.com/fluent/48/000000/sad.png" class="icon"/>
+              <img src="https://img.icons8.com/color/48/000000/happy.png" class="icon"/>
+              <img src="https://img.icons8.com/emoji/48/000000/smiling-face.png" class="icon"/>
+              <img src="https://img.icons8.com/color/48/000000/lol.png" class="icon"/>
+            </div>
+            <form class="feedbackForm">
+            <div class="form-group mt-4">
+              <!-- <textarea class="form-control" rows="7" name="fb" placeholder="Message"></textarea> -->
+              <textarea name="user_fb" class="form-control" placeholder="Message" rows="7"></textarea>
+            </div>
+            <div class="mt-2">
+              <input type="submit" class="btn btn-primary btn-block" value="Send Feedback">
+            </div>
+            </form>
+            <!-- <p class="mt-3">Continue without sending feedback</p> -->
+          </div>
+        </div>
+      </div>
+      <script src="{{ url_for('static', path='js/feedback.js') }}"></script>
+</body>
+</html>
