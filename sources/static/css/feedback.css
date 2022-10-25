@@ -99,6 +99,10 @@ p.mt-3{
 
 .icon{
     transition: all 0.2s ease ;
+    margin-top: 10px;
+}
+.icon.selected{
+    margin-top: 0px;
 }
 
 .icon:hover{

@@ -131,7 +131,7 @@ xhr.onreadystatechange = function(e) {
   e.preventDefault();
 
   if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
-    loading_off()
+    loading_off();
     const data = JSON.parse(xhr.responseText).data;
     const update =  new Date();
     document.querySelector('.person__img').innerHTML = `<img src="/static/results/0.jpg?v=${update.getTime()}" />`; // To update avoid using image from cache

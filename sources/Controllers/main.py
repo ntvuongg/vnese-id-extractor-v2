@@ -1,3 +1,4 @@
+from typing import Optional
 from pylibsrtp import Session
 from sources import app, templates
 from fastapi import Request, UploadFile, File, Depends, Form
@@ -16,7 +17,6 @@ import numpy as np
 from vietocr.tool.predictor import Predictor
 from vietocr.tool.config import Cfg
 import sources.Controllers.config as cfg
-import shutil
 
 """ ---- Setup ---- """
 # Init Database
@@ -61,6 +61,15 @@ FACE_CROP_DIR = cfg.FACE_DIR
 """ ---- ##### -----"""
 class feedback_Request(BaseModel):
     content: str
+    rating: int
+    class Config:
+        orm_mode = True
+
+class contact_Request(BaseModel):
+    name: str
+    email: str
+    phone: Optional[str] = None
+    message: str
     class Config:
         orm_mode = True
     
@@ -82,17 +91,20 @@ async def home(request: Request):
     return templates.TemplateResponse("home.html", {"request": request})
 
 @app.get("/id_card")
-async def home(request: Request):
+async def id_extract_page(request: Request):
     return templates.TemplateResponse("idcard.html", {"request": request})
 
 @app.get("/ekyc")
-async def ekyc_home(request: Request):
+async def ekyc_page(request: Request):
     return templates.TemplateResponse("ekyc.html", {"request": request})
 
-
 @app.get("/feedback")
-async def feedback_home(request: Request):
+async def feedback_page(request: Request):
     return templates.TemplateResponse("feedback.html", {"request": request})
+
+@app.get("/contact")
+async def contact_page(request: Request):
+    return templates.TemplateResponse("contact.html", {"request": request})
 
 @app.post("/uploader")
 async def upload(file: UploadFile = File(...)):
@@ -157,7 +169,7 @@ async def extract_info(ekyc=False, path_id = None):
     # CORNER.show()
 
     CONTENT = CONTENT_MODEL(aligned)
-    CONTENT.save(save_dir='results/')
+    # CONTENT.save(save_dir='results/')
     predictions = CONTENT.pred[0]
     categories = predictions[:, 5].tolist()  # Class
     if 7 not in categories:
@@ -215,9 +227,10 @@ async def download(file: str = Form(...)):
         return JSONResponse(status_code=405, content={"message": error})
 
 @app.post("/feedback")
-async def save_feedback(content: str = Form(...), db: Session = Depends(get_db)):
+async def save_feedback(content: str = Form(...), rating: int = Form(...), db: Session = Depends(get_db)):
     feedback = Feedback()
     feedback.content = content
+    feedback.rating = rating
     db.add(feedback)
     db.commit()
 
@@ -227,6 +240,11 @@ async def save_feedback(content: str = Form(...), db: Session = Depends(get_db))
                 }
     
     return JSONResponse(content=response)
+
+@app.post("/contact")
+async def contact(request: contact_Request):
+    # print(request.name)
+    pass
 
 @app.post("/ekyc/uploader")
 async def get_id_card(id: UploadFile = File(...), img: UploadFile = File(...)):
