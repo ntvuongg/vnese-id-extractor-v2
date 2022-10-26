@@ -38,4 +38,4 @@ https://user-images.githubusercontent.com/65907920/197776185-da82f1e3-bc4e-41c9-
 - [ ] Code Refactoring
 
 ## **Contributors**
-Special thanks to [Huynh Thien Tung](https://github.com/tuilatung), [Le Thi Thanh Thanh](https://github.com/thanhthanhthile) and [Truong Minh Son](https://github.com/truongminhson) have contributed for this project. I heartly thankful to you all.
+Special thanks to [Huynh Thien Tung](https://github.com/tuilatung), [Le Thi Thanh Thanh](https://github.com/thanhthanhthile) and [Truong Minh Son](https://github.com/truongminhson) have contributed to this project. I heartly thankful to you all.
