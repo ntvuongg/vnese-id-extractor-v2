@@ -1,6 +1,9 @@
-from sqlalchemy import Column, Integer, String, DateTime
-from .database import Base
 import datetime as dt
+
+from sqlalchemy import Column, DateTime, Integer, String
+
+from .database import Base
+
 
 class Feedback(Base):
     __tablename__ = "feedbacks"

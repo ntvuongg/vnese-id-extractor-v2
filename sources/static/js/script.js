@@ -171,7 +171,7 @@ xhr.onreadystatechange = function(e) {
     })
   }
   else if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 201){
-    downloadCSV({ 
+    downloadCSV({
             filename: "user_data.csv"
           });
     const downloadSuccess = Swal.mixin({
@@ -181,7 +181,7 @@ xhr.onreadystatechange = function(e) {
       timer: 3000,
       timerProgressBar: true,
     })
-  
+
     downloadSuccess.fire({
       icon: 'success',
       title: 'Download extracted data successfully!'
@@ -217,7 +217,7 @@ imgForm.addEventListener("submit", function(e) {
   xhr.send(formData);
 });
 
-convertArrayOfObjectsToCSV = args => {  
+convertArrayOfObjectsToCSV = args => {
   const data = args.data;
   if (!data || !data.length) return;
 
@@ -296,7 +296,7 @@ function displayFile() {
   } else {
     dropArea.classList.remove('active');
     file = 'wrong_exts';
-    file_validation(); 
+    file_validation();
     file = null;
   }
 }
