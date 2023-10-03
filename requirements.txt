@@ -1,14 +1,15 @@
+aiosqlite
+databases
+fastapi
+Jinja2
+pre-commit
+pylibsrtp
+python-multipart
+shapely==1.7.1
+uvicorn==0.17.6 # Newer version has deprecated debug in run()
 # pip install -r requirements.txt
 vietocr
-uvicorn==0.17.6 # Newer version has deprecated debug in run()
-fastapi
-pylibsrtp
-databases
 yolov5
-aiosqlite
-python-multipart
-Jinja2
-shapely==1.7.1
 # numpy>=1.18.5
 # opencv-python>=4.1.2
 # Pillow>=7.1.2

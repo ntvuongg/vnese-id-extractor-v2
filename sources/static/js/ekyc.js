@@ -105,7 +105,7 @@ p_dropArea.addEventListener('drop', (event) => {
 
 const xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function(e) {
-  
+
   e.preventDefault ();
   if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
     loading_off();
@@ -118,7 +118,7 @@ xhr.onreadystatechange = function(e) {
       footer: `CODE: ${xhr.status}`
     })
 
-    setTimeout(function() { 
+    setTimeout(function() {
       resultArea.scrollIntoView(true);
       const data = JSON.parse(xhr.responseText).data;
       const update =  new Date();
@@ -147,7 +147,7 @@ xhr.onreadystatechange = function(e) {
 };
 
 startBtn.onclick = (e) => {
-  
+
   e.preventDefault();
   // const xhr = new XMLHttpRequest();
   const formData = new FormData();
@@ -202,7 +202,7 @@ function displayFile() {
   } else {
     dropArea.classList.remove('active');
     file = 'wrong_exts';
-    file_validation(); 
+    file_validation();
     file = null;
   }
 }
@@ -225,7 +225,7 @@ function displayFile2() {
   } else {
     p_dropArea.classList.remove('active');
     img = 'wrong_exts';
-    file_validation(); 
+    file_validation();
     img = null;
   }
 }
